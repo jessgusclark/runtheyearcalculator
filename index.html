@@ -1,0 +1,99 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation Starter Template</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.1/foundation.min.css">
+
+    <style type="text/css">
+        .heading {text-align: center;}
+        .stat {
+          font-size: 10em;
+          text-align: center;
+          color:#999;
+        }
+        .statmedium {
+          font-size: 8em;
+          text-align: center;
+          color: #999;
+        }
+        .description {text-align: center;}
+    </style>
+  </head>
+  <body>
+   
+  <div class="row">
+    <div class="medium-6 columns">
+    <h1>Run The Year Tracking</h1>
+
+    </div>
+    <div class="medium-4 columns">
+      <input type="text" class="inputmiles" value="911" placeholder="Insert Miles" />
+    </div>
+    <div class="medium-2 columns">
+      <p class="button">Update</p>
+    </div>
+  </div>
+   <div class="row">
+      <div class="medium-4 columns">
+          <h2 class="heading">Today is the</h2>
+          <p class="stat day"></p>
+          <p class="description">day of the year</p>
+      </div>
+      <div class="medium-4 columns">
+          <h2 class="heading">Number of Miles</h2>
+          <p class="stat miles"></p>
+          <p class="description">to be on track</p>
+      </div>
+      <div class="medium-4 columns">
+          <h2 class="heading">Number of Miles</h2>
+          <p class="stat you">-</p>
+          <p class="description">you have run</p>
+      </div>
+   </div>
+   <div class="row">
+      <div class="medium-4 columns">
+          <h3 class="heading">Number of Miles</h3>
+          <p class="statmedium left">-</p>
+          <p class="description">left to run in the year</p>
+      </div>
+      <div class="medium-4 columns">
+          <h3 class="heading">Number of Miles</h3>
+          <p class="statmedium leftdays">-</p>
+          <p class="description">left to run each day</p>
+      </div> 
+   </div>
+
+   <script src="http://code.jquery.com/jquery-3.0.0.min.js"   integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="   crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/foundation/6.2.1/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+
+    <script>
+      var now = new Date();
+      var start = new Date(now.getFullYear(), 0, 0);
+      var diff = now - start;
+      var oneDay = 1000 * 60 * 60 * 24;
+      var day = Math.floor(diff / oneDay);
+      var daymiles = day * 5.5;
+      var daysleft = 366 - day;
+
+      $(".day").html(day);
+      $(".miles").html(daymiles);
+
+      $(".button").click(function(){
+        var mymiles = $(".inputmiles").val();
+        $(".you").html(mymiles);
+
+        $(".left").html(2016-mymiles);
+
+        $(".leftdays").html(Math.round((2016-mymiles)/daysleft*100)/100);
+      });
+
+    </script>
+
+  </body>
+</html>
