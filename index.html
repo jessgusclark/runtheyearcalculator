@@ -30,7 +30,7 @@
 
     </div>
     <div class="medium-4 columns">
-      <input type="text" class="inputmiles" value="911" placeholder="Insert Miles" />
+      <input type="text" class="inputmiles" value="1174.67" placeholder="Insert Miles" />
     </div>
     <div class="medium-2 columns">
       <p class="button">Update</p>
@@ -86,9 +86,9 @@
 
       $(".button").click(function(){
         var mymiles = $(".inputmiles").val();
-        $(".you").html(mymiles);
+        $(".you").html(Math.round(mymiles));
 
-        $(".left").html(2016-mymiles);
+        $(".left").html(Math.floor(2016-mymiles));
 
         $(".leftdays").html(Math.round((2016-mymiles)/daysleft*100)/100);
       });
