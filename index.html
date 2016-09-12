@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation Starter Template</title>
+    <title>Run the Year Tracking</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.1/foundation.min.css">
 
     <style type="text/css">
-        .heading {text-align: center;}
+        .heading, h1 {text-align: center;}
         .stat {
           font-size: 10em;
           text-align: center;
@@ -25,41 +25,49 @@
   <body>
    
   <div class="row">
-    <div class="medium-6 columns">
-    <h1>Run The Year Tracking</h1>
+    <div class="small-12 columns">
+      <h1>Run The Year Tracking</h1>
+    </div>
 
+    <div class="medium-2 medium-offset-4 columns">
+      <input type="text" class="inputmiles" value="" placeholder="Insert Miles" />
     </div>
-    <div class="medium-4 columns">
-      <input type="text" class="inputmiles" value="1174.67" placeholder="Insert Miles" />
+    <div class="medium-2 columns" style="float:left;">
+      <p class="button full">Update</p>
     </div>
-    <div class="medium-2 columns">
-      <p class="button">Update</p>
-    </div>
+
   </div>
    <div class="row">
-      <div class="medium-4 columns">
+      <div class="medium-6 columns">
           <h2 class="heading">Today is the</h2>
           <p class="stat day"></p>
           <p class="description">day of the year</p>
       </div>
-      <div class="medium-4 columns">
+      <div class="medium-6 columns">
+          <h2 class="heading">There are</h2>
+          <p class="stat dayleft"></p>
+          <p class="description">days left in the year</p>
+      </div>
+   </div>
+   <div class="row">
+      <div class="medium-6 columns">
           <h2 class="heading">Number of Miles</h2>
           <p class="stat miles"></p>
           <p class="description">to be on track</p>
       </div>
-      <div class="medium-4 columns">
+      <div class="medium-6 columns">
           <h2 class="heading">Number of Miles</h2>
           <p class="stat you">-</p>
           <p class="description">you have run</p>
       </div>
    </div>
    <div class="row">
-      <div class="medium-4 columns">
+      <div class="medium-6 columns">
           <h3 class="heading">Number of Miles</h3>
           <p class="statmedium left">-</p>
           <p class="description">left to run in the year</p>
       </div>
-      <div class="medium-4 columns">
+      <div class="medium-6 columns">
           <h3 class="heading">Number of Miles</h3>
           <p class="statmedium leftdays">-</p>
           <p class="description">left to run each day</p>
@@ -82,6 +90,7 @@
       var daysleft = 366 - day;
 
       $(".day").html(day);
+      $(".dayleft").html(daysleft);
       $(".miles").html(daymiles);
 
       $(".button").click(function(){
